@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ising Model Simulation Over External Magnetic Field</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 800px; /* Increased width to 800px */
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            margin-right: 10px;
+            text-align: right;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+        }
+        .custom-file-upload:hover {
+            background-color: #0056b3;
+        }
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        input[type="number"] {
+            width: 70px;
+        }
+        .description {
+            margin-left: 160px; /* Adjusted margin for descriptions */
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ising Model Simulation Over External Magnetic Field</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form method="POST" enctype="multipart/form-data" autocomplete="off">
+            <label for="file">Upload Image:</label>
+            <label class="custom-file-upload">
+                <input type="file" id="file" name="file" accept=".png, .jpg, .jpeg"> Choose File
+            </label>
+            <br><br>
+            <h3>Simulation Parameters</h3>
+            <label for="temperature">Temperature:</label>
+            <input type="number" id="temperature" name="temperature" step="0.001" value="0.5">
+            <br><br>
+            <span class="description">(Higher temperatures introduce more randomness to the system)</span>
+            <br><br>
+            <label for="num_steps">Number of Steps:</label>
+            <input type="number" id="num_steps" name="num_steps" value="20000">
+            <br><br>
+            <label for="downsample_factor">Downsample Factor:</label>
+            <input type="number" id="downsample_factor" name="downsample_factor" value="8">
+            <br><br>
+            <label for="initial_spin_prob">Initial Spin Probability (0 to 1):</label>
+            <input type="number" id="initial_spin_prob" name="initial_spin_prob" step="0.01" min="0" max="1" value="0.5">
+            <br><br>
+            <label for="external_field_weight">External Field Weight:</label>
+            <input type="number" id="external_field_weight" name="external_field_weight" value="50">
+            <br><br>
+            <span class="description">(Dictates how much attractive force the external field has on the system)</span>
+            <br><br>
+            <input type="submit" class="btn" value="Start Simulation">
+        </form>
+    </div>
+</body>
+</html>
