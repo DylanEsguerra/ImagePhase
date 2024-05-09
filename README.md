@@ -1,6 +1,6 @@
 **Ising Model Simulation Flask App**
 
-This Flask app simulates the behavior of the Ising model over an external magnetic field using an uploaded image as the initial spin configuration. The Ising model is a mathematical model used to describe the behavior of magnetic materials, particularly how their magnetic spins interact with each other and with an external magnetic field.
+This Flask app simulates the behavior of the Ising model over an external magnetic field of an uploaded image. The Ising model is a mathematical model used to describe the behavior of magnetic materials, particularly how their magnetic spins interact with each other and with an external magnetic field.
 
 **How it works:**
 
