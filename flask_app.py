@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 # Define the allowed file extensions
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+ALLOWED_EXTENSIONS = {'png'}
 
 # Define the path to the uploads and static directories
 UPLOAD_FOLDER = 'uploads'
@@ -109,12 +109,12 @@ def index():
             num_steps = int(request.form.get('num_steps', 20000))
             downsample_factor = int(request.form.get('downsample_factor', 8))
             initial_spin_prob = float(request.form.get('initial_spin_prob', 0.5))
-            external_field_weight = float(request.form.get('external_field_weight', 50))
+            external_field_weight = float(request.form.get('external_field_weight', 5))
             return redirect(url_for('display_simulation', temperature=temperature, num_steps=num_steps,
                                     downsample_factor=downsample_factor, initial_spin_prob=initial_spin_prob,
                                     external_field_weight=external_field_weight))
         else:
-            flash('Invalid file type. Please upload an image file with .png, .jpg, or .jpeg extension.')
+            flash('Invalid file type. Please upload an image file with .png extension.')
             return redirect(request.url)
     return render_template('index.html')
 
@@ -130,7 +130,7 @@ def display_simulation():
     num_steps = int(request.args.get('num_steps', 20000))
     downsample_factor = int(request.args.get('downsample_factor', 8))
     initial_spin_prob = float(request.args.get('initial_spin_prob', 0.5))
-    external_field_weight = float(request.args.get('external_field_weight', 50))
+    external_field_weight = float(request.args.get('external_field_weight', 5))
 
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], "uploaded_image.png")
 
