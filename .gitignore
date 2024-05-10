@@ -4,7 +4,6 @@ flask_app/uploads/*
 # Ignore virtual env
 myenv/
 
-
 # Ignore files in the static folder
 flask_app/static/*
 # Ignore files in the uploads folder
