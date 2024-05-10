@@ -1,6 +1,6 @@
 ## Ising Model Simulation Flask App
 
-This Flask app simulates the behavior of the Ising model over an external magnetic field of an uploaded image. The Ising model is a mathematical model used to describe the behavior of magnetic materials, particularly how their magnetic spins interact with each other and with an external magnetic field.
+This Flask app simulates the behavior of the Ising model over an external magnetic field of an uploaded image. The Ising model is the primary thermodynamic model used to understand phase transitions and describes the behavior of magnetic materials at a given temperature. In the Ising model, magnetic spins interact with their nearest neighbors and with an external magnetic field. Here, the external field is an image uploaded by the user. The result is an interesting visualization where the uploaded image seems to appear from the mist as the Ising model's spins align.
 
 ### How it works:
 
@@ -12,7 +12,7 @@ This Flask app simulates the behavior of the Ising model over an external magnet
    - Users can set various simulation parameters:
      - **Temperature:** Higher temperatures introduce more randomness to the system.
      - **Number of Steps:** The number of steps in the simulation.
-     - **Downsample Factor:** Determines the level of downsampling applied to the image.
+     - **Downsample Factor:** Determines the size of the visualization. Increase this if the simulation is taking too long.
      - **Initial Spin Probability:** Probability of a pixel being initially spin up.
      - **External Field Weight:** Dictates how much force the external magnetic field exerts on the system.
 
@@ -24,8 +24,8 @@ This Flask app simulates the behavior of the Ising model over an external magnet
    - The animated GIF is displayed to the user, showing the changing spin configuration over the course of the simulation.
 
 ### Files and Folders:
-- `app.py`: Contains the Flask application code.
-- `static/`: Folder for storing static files such as images and stylesheets.
+- `flask_app.py`: Contains the Flask application code.
+- `static/`: Folder for storing the animation.
 - `templates/`: Folder for storing HTML templates.
 - `uploads/`: Folder for temporarily storing uploaded images.
 - `requirements.txt`: Contains a list of required Python packages for running the app.
@@ -58,3 +58,7 @@ This Flask app simulates the behavior of the Ising model over an external magnet
 
 ### Authors:
 - Dylan Esguerra
+
+## References
+
+https://github.com/lukepolson/youtube_channel/blob/main/Python%20Metaphysics%20Series/vid14.ipynb
