@@ -34,7 +34,7 @@ This Flask app simulates the behavior of the Ising model over an external magnet
 - `templates/`: Folder for storing HTML templates.
 - `uploads/`: Folder for temporarily storing uploaded images.
 - `requirements.txt`: Contains a list of required Python packages for running the app.
-- `.gitignore`: Specifies files and folders to be ignored by Git.
+
 
 
 ### Usage Instructions:
