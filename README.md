@@ -61,4 +61,8 @@ This Flask app simulates the behavior of the Ising model over an external magnet
 
 ## References
 
-https://github.com/lukepolson/youtube_channel/blob/main/Python%20Metaphysics%20Series/vid14.ipynb
+Halim, Siana. “MODIFIED ISING MODEL for GENERATING BINARY IMAGES.” Jurnal Informatika, vol. 8, no. 2, 2007, pp. 115–118, ojs.petra.ac.id/ojsnew/index.php/inf/article/view/16776, https://doi.org/10.9744/informatika.8.2.pp. Accessed 12 May 2024.
+
+Luke Polson. “Youtube_channel/Python Metaphysics Series/Vid14.Ipynb at Main · Lukepolson/Youtube_channel.” GitHub, 2023, github.com/lukepolson/youtube_channel/blob/main/Python%20Metaphysics%20Series/vid14.ipynb.
+
+Meurice, Yannick. “Making Digital Aquatint with the Ising Model.” American Journal of Physics, vol. 90, no. 2, Feb. 2022, pp. 87–92, https://doi.org/10.1119/10.0006525. Accessed 8 June 2022.
