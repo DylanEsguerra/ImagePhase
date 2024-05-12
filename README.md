@@ -1,6 +1,8 @@
-## Ising Model Simulation Flask App
+## ImagePhase - Ising Model Simulations with User-Uploaded Image-Based External Fields
 
 This Flask app simulates the behavior of the Ising model over an external magnetic field of an uploaded image. The Ising model is the primary thermodynamic model used to understand phase transitions and describes the behavior of magnetic materials at a given temperature. In the Ising model, magnetic spins interact with their nearest neighbors and with an external magnetic field. Here, the external field is an image uploaded by the user. The result is an interesting visualization where the uploaded image seems to appear from the mist as the Ising model's spins align.
+
+[Code Availability](https://github.com/DylanEsguerra/Ising_flask_app)
 
 ### How it works:
 
@@ -30,6 +32,7 @@ This Flask app simulates the behavior of the Ising model over an external magnet
 - `uploads/`: Folder for temporarily storing uploaded images.
 - `requirements.txt`: Contains a list of required Python packages for running the app.
 - `.gitignore`: Specifies files and folders to be ignored by Git.
+
 
 ### Usage Instructions:
 
