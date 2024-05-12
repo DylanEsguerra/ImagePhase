@@ -6,11 +6,16 @@ from PIL import Image
 from scipy.signal import convolve2d
 import matplotlib.animation as animation
 import matplotlib
+import secrets
 matplotlib.use('agg')
 
 app = Flask(__name__)
 
-app.secret_key = ## add key
+
+
+secret_key = secrets.token_hex(16)
+
+app.secret_key = secret_key
 
 # Define the allowed file extensions
 ALLOWED_EXTENSIONS = {'png'}
