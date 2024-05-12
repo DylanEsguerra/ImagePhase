@@ -4,6 +4,9 @@ This Flask app simulates the behavior of the Ising model over an external magnet
 
 [Code Availability](https://github.com/DylanEsguerra/ImagePhase)
 
+
+![Van Gogh Animation](static/vg_animation.gif)
+
 ### How it works:
 
 1. **Upload Image:**
