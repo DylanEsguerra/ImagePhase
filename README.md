@@ -19,6 +19,7 @@ This Flask app simulates the behavior of the Ising model over an external magnet
      - **Number of Steps:** The number of steps in the simulation.
      - **Downsample Factor:** Determines the size of the visualization. Increase this if the simulation is taking too long.
      - **Initial Spin Probability:** Probability of a pixel being initially spin up.
+     - **Pixel Threshold:** Adjusts the sensitivity of grayscale image pixels, lower = more white pixels
      - **External Field Weight:** Dictates how much force the external magnetic field exerts on the system.
 
 3. **Start Simulation:**
