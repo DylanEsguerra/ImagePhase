@@ -88,6 +88,7 @@ def run_simulation(image_array, temperature, num_steps, downsample_factor, initi
 
     animation_path = os.path.join(app.config['STATIC_FOLDER'], "simulation_animation.gif")
     anim.save(animation_path, writer='pillow')
+    plt.close()
     return animation_path
 
 # Function to check if file extension is allowed
