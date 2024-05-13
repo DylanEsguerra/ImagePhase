@@ -12,7 +12,6 @@ matplotlib.use('agg')
 app = Flask(__name__)
 
 
-
 secret_key = secrets.token_hex(16)
 
 app.secret_key = secret_key
@@ -67,17 +66,16 @@ def update_plot(frame, ax, sim):
     ax.axis('off')
 
 # Function to convert image to binary
-def image_to_binary(image_path, threshold=125, downsample_factor=10):
+def image_to_binary(image_path, pixel_threshold, downsample_factor):
     img = Image.open(image_path).convert('L')
     img_array = np.array(img)
-    binary_array = (img_array > threshold).astype(int)
+    binary_array = (img_array > pixel_threshold).astype(int)
+    binary_array = np.where(binary_array == 0, -1, 1)
     return binary_array[::downsample_factor, ::downsample_factor]
 
 # Function to run the simulation
-def run_simulation(image_array, temperature, num_steps, downsample_factor, initial_spin_prob, external_field_weight=50):
-    binary_pixels = image_to_binary(image_array, downsample_factor=downsample_factor)
-
-    binary_pixels = np.where(binary_pixels == 0, -1, 1)
+def run_simulation(image_array, temperature, num_steps, downsample_factor, initial_spin_prob, external_field_weight,pixel_threshold):
+    binary_pixels = image_to_binary(image_array, pixel_threshold, downsample_factor)
 
     initial_state = np.random.random(binary_pixels.shape)
     lattice = np.where(initial_state >= initial_spin_prob, 1, -1)
@@ -115,9 +113,10 @@ def index():
             downsample_factor = int(request.form.get('downsample_factor', 8))
             initial_spin_prob = float(request.form.get('initial_spin_prob', 0.5))
             external_field_weight = float(request.form.get('external_field_weight', 5))
+            pixel_threshold = float(request.form.get('pixel_threshold', 125))
             return redirect(url_for('display_simulation', temperature=temperature, num_steps=num_steps,
                                     downsample_factor=downsample_factor, initial_spin_prob=initial_spin_prob,
-                                    external_field_weight=external_field_weight))
+                                    external_field_weight=external_field_weight,pixel_threshold=pixel_threshold))
         else:
             flash('Invalid file type. Please upload an image file with .png extension.')
             return redirect(request.url)
@@ -136,6 +135,7 @@ def display_simulation():
     downsample_factor = int(request.args.get('downsample_factor', 8))
     initial_spin_prob = float(request.args.get('initial_spin_prob', 0.5))
     external_field_weight = float(request.args.get('external_field_weight', 5))
+    pixel_threshold = float(request.args.get('pixel_threshold', 125))
 
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], "uploaded_image.png")
 
@@ -144,7 +144,7 @@ def display_simulation():
         return redirect(url_for('index'))
 
     try:
-        animation = run_simulation(file_path, temperature, num_steps, downsample_factor, initial_spin_prob, external_field_weight)
+        animation = run_simulation(file_path, temperature, num_steps, downsample_factor, initial_spin_prob, external_field_weight, pixel_threshold)
         return send_file(animation, mimetype='image/gif')
     except Exception as e:
         flash(f'Error in simulation: {str(e)}')
