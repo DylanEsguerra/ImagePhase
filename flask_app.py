@@ -37,9 +37,9 @@ class IsingSimulation:
         self.spins_over_time = []
 
     def calculate_energy(self, spin_config):
-        energy = -np.sum(convolve2d(spin_config, self.kernel, mode='same', boundary='wrap') * spin_config) / 2
+        energy = -np.sum(np.multiply(convolve2d(spin_config, self.kernel, mode='same', boundary='wrap'),spin_config)) / 2
         if self.magnetic_field is not None:
-            energy += -np.sum(self.magnetic_field * spin_config)
+            energy += -np.sum(np.multiply(self.magnetic_field, spin_config))
         return energy
 
     def metropolis_step(self):
