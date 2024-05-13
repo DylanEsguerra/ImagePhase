@@ -80,7 +80,7 @@
                 </ul>
             {% endif %}
         {% endwith %}
-        <form method="GET" enctype="multipart/form-data" autocomplete="off" action="{{ url_for('display_simulation') }}">
+        <form method="POST" enctype="multipart/form-data" autocomplete="off" action="{{ url_for('index') }}">
             <label for="file">Upload Image:</label>
             <label class="custom-file-upload">
                 <input type="file" id="file" name="file" accept=".png, .jpg, .jpeg"> Choose File
